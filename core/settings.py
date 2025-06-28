@@ -316,24 +316,23 @@ LOGGING = {
 
 # I18n
 
-# from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
-# LANGUAGES = [
-#     ("uz", _("Uzbek")),
-#     ("en", _("English")),
-#     ("ru", _("Russian"))
-# ]
+LANGUAGES = [
+    ("en", _("English")),
+    ("uz", _("Uzbek")),
+    ("ru", _("Russian")),
+]
 
-# # LANGUAGE_CODE = 'en'
-# MODELTRANSLATION_LANGUAGES = ('uz', 'en', 'ru')
-# MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
-# MODELTRANSLATION_FALLBACK_LANGUAGES = {
-#     'default': ('uz', 'en', 'ru'),
-#     'uz': ('en', 'ru'),
-#     'en': ('uz', 'ru'),
-#     'ru': ('uz', 'en'),
-# }
+MODELTRANSLATION_LANGUAGES = ('en', 'uz', 'ru')
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
+MODELTRANSLATION_FALLBACK_LANGUAGES = {
+    'default': ('en', 'uz', 'ru'),
+    'en': ('uz', 'ru'),
+    'uz': ('en', 'ru'),
+    'ru': ('en', 'uz'),
+}
 
-# LOCALE_PATHS = [BASE_DIR / "locale"]
+LOCALE_PATHS = [BASE_DIR / "locale"]
 
 

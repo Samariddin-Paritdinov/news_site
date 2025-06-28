@@ -11,14 +11,14 @@ class IsAdminOrReadOnly(BasePermission):
     )
 
 class CategoryViewSet(viewsets.ModelViewSet): 
-  queryset = Category.objects.all()
-  serializer_class = CategorySerializer
-  permission_classes = [IsAdminOrReadOnly]
-  lookup_field = 'id'
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = [IsAdminOrReadOnly]
+    lookup_field = 'id'
 
 
 class TagViewSet(viewsets.ModelViewSet):
-  queryset = Tag.objects.all()
-  serializer_class = TagSerializer
-  permission_classes = [IsAdminOrReadOnly]
-  lookup_field = 'id'
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+    permission_classes = [IsAdminOrReadOnly]
+    lookup_field = 'id'
