@@ -19,7 +19,7 @@ from datetime import timedelta
 load_dotenv()
 
 # Custom user model
-# AUTH_USER_MODEL = "accounts.User"
+AUTH_USER_MODEL = "accounts.User"
 
 
 
@@ -53,10 +53,16 @@ DJANGO_APPS = [
 LOCAL_APPS = [
     'common',
     'accounts',
+    'news',
 ]
 
 EXTERNAL_APPS = [
-
+    'jazzmin',
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'drf_yasg',
+    "rosetta",
+    "modeltranslation",
 ]
 
 
@@ -66,6 +72,7 @@ INSTALLED_APPS = EXTERNAL_APPS + DJANGO_APPS + LOCAL_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

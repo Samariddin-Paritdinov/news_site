@@ -5,7 +5,10 @@ from drf_yasg import openapi
 from rest_framework import permissions
 from django.conf import settings
 from django.conf.urls.static import static
-
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 
 schema_view = get_schema_view(
@@ -24,6 +27,14 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    path("profile/", include("accounts.api_endpoints.Profile.urls"), name="profile"),
+    path("media-file/", include("common.api_endpoints.MediaFile.urls"), name="media"),
+
+    path("tag-category/", include("news.api_endpoints.TagCategory.urls"), name="tag-category"),
+    path("news/", include("news.api_endpoints.News.urls"), name="news"),
 
 
 
