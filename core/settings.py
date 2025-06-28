@@ -63,6 +63,7 @@ EXTERNAL_APPS = [
     'drf_yasg',
     "rosetta",
     "modeltranslation",
+    'django_celery_beat',
 ]
 
 
@@ -336,3 +337,11 @@ MODELTRANSLATION_FALLBACK_LANGUAGES = {
 LOCALE_PATHS = [BASE_DIR / "locale"]
 
 
+
+# Celery Configuration
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Tashkent'

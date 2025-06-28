@@ -46,14 +46,16 @@ class RegisterUserAPIView(APIView):
                 existing.set_password(new_pass)
                 existing.save()
 
-                send_email(
-                    subject="Reset your password",
-                    intro_text="Click the link below to reset your password.",
+                logger.info("send_email.delay called:  registerview line:49")
+                send_email.delay(
+                    subject="Confirm your email",
+                    intro_text="Click the link below to confirm your email and use new_password.",
                     email=email,
                     token=token,
                     template="email/reset_password_email.html",
                     password=new_pass,
                 )
+                logger.info("Email send")
 
                 return Response(
                     {
@@ -73,14 +75,17 @@ class RegisterUserAPIView(APIView):
         token = generate_email_confirm_token(user)
 
         logger.info(f"New user created: {user.email}. Sending confirmation email.\n token: {token}")
-
-        send_email(
-            subject="Reset your password",
-            intro_text="Click the link below to reset your password.",
+        
+        
+        logger.info("send_email.delay called:  registerview line:80")
+        send_email.delay(
+            subject="Confirm your email",
+            intro_text="Click the link below to confirm your email.",
             email=email,
             token=token,
             template="email/reset_password_email.html",
         )
+        logger.info("Email send")
 
         return Response(
             {"detail": "User created. Confirmation email sent."},

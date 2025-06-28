@@ -1,3 +1,5 @@
+import logging
+
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
@@ -19,3 +21,4 @@ def send_email(subject, intro_text, email, token, template, password=None):
     email = EmailMessage(subject, html_content, to=[to_email])
     email.content_subtype = "html"
     email.send()
+    logging.info(f"Email sent to {to_email} with subject: {subject}")
