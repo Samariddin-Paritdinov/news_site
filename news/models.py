@@ -65,6 +65,12 @@ class News(BaseModel):
         blank=True
     )
 
+    # Новое поле: если заполнено, новость будет опубликована в указанное время
+    scheduled_time  = models.DateTimeField(
+        null=True,
+        blank=True,
+        help_text=_("If set, news will be published at this time")
+    )
     
     liked_by     = models.ManyToManyField(
         User,
