@@ -4,7 +4,7 @@ from news.api_endpoints.News.NewsList.serializers import NewsListSerializer
 
 
 class NewsListAPIView(generics.ListAPIView):
-    queryset = News.objects.all()
+    queryset = News.objects.filter(is_active=True)
     serializer_class = NewsListSerializer
     permission_classes = []
 

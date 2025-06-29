@@ -67,7 +67,7 @@ class NewsAdmin(admin.ModelAdmin):
     form = NewsAdminForm
     fieldsets = (
         (_("Main"), {
-            'fields': ('title', 'slug', 'is_active', 'required_login', 'author', 'default_image'),
+            'fields': ('title', 'slug', 'is_active', 'required_login', 'author', 'default_image', 'scheduled_time'),
         }),
         (_("English"), {
             'fields': ('title_en', 'content_en'),

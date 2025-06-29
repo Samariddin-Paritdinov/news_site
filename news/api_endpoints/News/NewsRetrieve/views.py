@@ -5,7 +5,7 @@ from news.models import News
 from news.api_endpoints.News.NewsRetrieve.serializers import NewsRetrieveSerializer
 
 class NewsRetrieveAPIView(generics.RetrieveAPIView):
-    queryset = News.objects.all()
+    queryset = News.objects.filter(is_active=True)
     serializer_class = NewsRetrieveSerializer
     lookup_field = 'id'
     permission_classes = []

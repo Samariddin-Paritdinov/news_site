@@ -13,7 +13,9 @@ def schedule_news_publish(sender, instance, created, **kwargs):
     """
     При создании News заполненным scheduled_time создаём одноразовый PeriodicTask.
     """
+    logger.info("Singnal post_save for News triggered.")
     if created and instance.scheduled_time:
+        logger.info("if statement for (created and scheduled_time) passed.")
         publish_time = instance.scheduled_time
         # Создаём или получаем ClockedSchedule на заданное время
         schedule, _ = ClockedSchedule.objects.get_or_create(

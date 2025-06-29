@@ -63,6 +63,7 @@ EXTERNAL_APPS = [
     'drf_yasg',
     "rosetta",
     "modeltranslation",
+    "flower",
     'django_celery_beat',
 ]
 
@@ -345,3 +346,4 @@ CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Tashkent'
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler'
